@@ -1,0 +1,61 @@
+﻿@model Your_Money.Models.Usuario
+
+@{
+    ViewData["Title"] = "Editar Usuário";
+}
+
+<body style="background-image: url(/blue1.png);">
+
+<nav>
+    <ol class="breadcrumb p-0 pt-0 pb-3" style="background: white;">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Usuarios" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Editar Usuário</li>
+    </ol>
+</nav>
+
+<h2 style="color:darkblue">Editar Usuário</h2>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <b style="color:darkblue">
+                <label asp-for="Nome" class="control-label"></label></b>
+                    <input asp-for="Nome" class="form-control shadow-sm" readonly />
+                    <span type="hidden" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <b style="color:darkblue">
+                        <label asp-for="Email" class="control-label"></label>
+                    </b>
+                    <input asp-for="Email" class="form-control shadow-sm" readonly />
+                    <span type="hidden" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                <b style="color:darkblue">
+                    <label asp-for="Senha" class="control-label"></label></b>
+                <input asp-for="Senha" class="form-control shadow-sm" />
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <b style="color:darkblue">
+                        <label asp-for="ConfirmarSenha" class="control-label"></label>
+                    </b>
+                        <input asp-for="ConfirmarSenha" class="form-control shadow-sm" />
+                <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
